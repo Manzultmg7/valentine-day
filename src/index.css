@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 350 100% 98%;
+    --foreground: 350 80% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 350 80% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 350 80% 25%;
+
+    --primary: 350 80% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 350 60% 90%;
+    --secondary-foreground: 350 80% 30%;
+
+    --muted: 350 30% 95%;
+    --muted-foreground: 350 30% 45%;
+
+    --accent: 20 100% 70%;
+    --accent-foreground: 350 80% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 350 50% 90%;
+    --input: 350 50% 90%;
+    --ring: 350 80% 60%;
+
+    --radius: 1rem;
+
+    /* Custom Valentine colors */
+    --love-pink: 350 100% 88%;
+    --love-red: 350 80% 55%;
+    --love-coral: 10 90% 70%;
+    --love-cream: 30 100% 97%;
+    --love-gold: 45 100% 60%;
+  }
+
+  .dark {
+    --background: 350 50% 10%;
+    --foreground: 350 20% 95%;
+    --card: 350 50% 15%;
+    --card-foreground: 350 20% 95%;
+    --popover: 350 50% 15%;
+    --popover-foreground: 350 20% 95%;
+    --primary: 350 80% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 350 40% 20%;
+    --secondary-foreground: 350 20% 95%;
+    --muted: 350 40% 20%;
+    --muted-foreground: 350 20% 65%;
+    --accent: 20 100% 70%;
+    --accent-foreground: 350 20% 95%;
+    --border: 350 40% 25%;
+    --input: 350 40% 25%;
+    --ring: 350 80% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Pacifico', cursive;
+  }
+  
+  .font-body {
+    font-family: 'Quicksand', sans-serif;
+  }
+}
+
+/* Heart float animation */
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20vh) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes pulse-heart {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-float-up {
+  animation: float-up 6s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+.animate-pulse-heart {
+  animation: pulse-heart 1s ease-in-out infinite;
+}
+
+.animate-confetti {
+  animation: confetti-fall 3s ease-in-out forwards;
+}
+
+.animate-sparkle {
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Gradient backgrounds */
+.bg-valentine-gradient {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--love-cream)) 0%,
+    hsl(var(--love-pink)) 50%,
+    hsl(var(--secondary)) 100%
+  );
+}
+
+.bg-love-radial {
+  background: radial-gradient(
+    ellipse at center,
+    hsl(var(--love-pink)) 0%,
+    hsl(var(--background)) 70%
+  );
+}
+
+/* Text gradients */
+.text-love-gradient {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--love-red)) 0%,
+    hsl(var(--primary)) 50%,
+    hsl(var(--love-coral)) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
